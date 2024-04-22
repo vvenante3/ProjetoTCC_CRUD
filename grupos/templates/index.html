@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Policiais</title>
+</head>
+<body>
+    <ul>
+
+        {% for policial in policiais %}
+            <li>
+                {{ policial.idPolicial     }} -
+                {{ policial.DataCadastro   }} -
+                {{ policial.DataNascimento }} -
+                {{ policial.Sexo           }}
+
+                <a href="{% url "editar"    policial.idPolicial %}">Editar</a></li>
+                <a href="{% url "deletar"   policial.idPolicial %}">Deletar</a></li>
+        {% endfor %}
+
+    <form action="{% url 'salvar' %}" method="POST">
+        {% csrf_token %}
+        <input type="date" name="DataCadastro">
+        <input type="date" name="DataNascimento">
+        <input type="text" name="Sexo">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    </ul>
+
+
+
+
+    </body>
+</html>
