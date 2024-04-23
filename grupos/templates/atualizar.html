@@ -9,10 +9,13 @@
 </head>
 <body>
 
-    {{ policial.idPolicial }} - {{ policial.DataCadastro }} - {{policial.DataNascimento }} - {{ policial.Sexo }}
+    {{ policial.idPolicial }} - {{ policial.Matricula }} - {{ policial.Nome }} - {{ policial.Sobrenome }} - {{ policial.DataCadastro }} - {{policial.DataNascimento }} - {{ policial.Sexo }}
 
     <form action="{% url 'atualizar' policial.idPolicial %}" method="POST">
         {% csrf_token %}
+        <input type="text" name="Matricula"         value="{{ policial.Matricula }}"        >
+        <input type="text" name="Nome"              value="{{ policial.Nome }}"             >
+        <input type="text" name="Sobrenome"         value="{{ policial.Sobrenome }}"        >
         <input type="date" name="DataCadastro"      value="{{ policial.DataCadastro }}"     >
         <input type="date" name="DataNascimento"    value="{{ policial.DataNascimento }}"   >
         <input type="text" name="Sexo"              value="{{ policial.Sexo }}"             >

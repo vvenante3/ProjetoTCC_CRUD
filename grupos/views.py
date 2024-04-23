@@ -5,12 +5,15 @@ def home(request):
     return render(request, "index.html", {"policiais": policiais})
 
 def salvar(request):
+    Matricula       = request.POST['Matricula']
+    Nome            = request.POST['Nome']
+    Sobrenome       = request.POST['Sobrenome']
     DataCadastro    = request.POST.get("DataCadastro")
     DataNascimento  = request.POST.get("DataNascimento")
     Sexo            = request.POST.get("Sexo")
 
     #Salvar no Db
-    Policial.objects.create(DataCadastro=DataCadastro, DataNascimento=DataNascimento, Sexo=Sexo)
+    Policial.objects.create(Matricula=Matricula, Nome=Nome, Sobrenome=Sobrenome, DataCadastro=DataCadastro, DataNascimento=DataNascimento, Sexo=Sexo)
     policiais = Policial.objects.all()
     return render(request, "index.html", {"policiais": policiais})
 
@@ -20,12 +23,18 @@ def editar(request, id):
 
 
 def atualizar(request, id):
+    Matricula      = request.POST.get('Matricula')
+    Nome           = request.POST.get('Nome')
+    Sobrenome      = request.POST.get('Sobrenome')
     DataCadastro   =    request.POST.get("DataCadastro")
     DataNascimento =    request.POST.get("DataNascimento")
     Sexo           =    request.POST.get("Sexo")
 
     policial = Policial.objects.get(idPolicial=id)
 
+    policial.Matricula      = Matricula
+    policial.Nome           = Nome
+    policial.Sobrenome      = Sobrenome
     policial.DataCadastro   = DataCadastro
     policial.DataNascimento = DataNascimento
     policial.Sexo           = Sexo

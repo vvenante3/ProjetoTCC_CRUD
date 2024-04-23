@@ -8,28 +8,50 @@
     <title>Cadastro Policiais</title>
 </head>
 <body>
-    <ul>
+                <!--  AMOSTRA DE DADOS -->
+    <h2>Cadastro dos Participantes</h2>
+    <table border="1">
+        <tr>
+            <th>ID                  </th>
+            <th>MATRÍCULA           </th>
+            <th>NOME                </th>
+            <th>SOBRENOME           </th>
+            <th>CADASTRO NO SISTEMA </th>
+            <th>DATA DE NASCIMENTO  </th>
+            <th>SEXO                </th>
+            <th>OPÇÕES</th>
+        </tr>
 
         {% for policial in policiais %}
-            <li>
-                {{ policial.idPolicial     }} -
-                {{ policial.DataCadastro   }} -
-                {{ policial.DataNascimento }} -
-                {{ policial.Sexo           }}
+            <tr>
+            <th>{{ policial.idPolicial     }} </th>
+            <th>{{ policial.Matricula      }}</th>
+            <th>{{ policial.Nome           }}</th>
+            <th>{{ policial.Sobrenome      }}</th>
+            <th>{{ policial.DataCadastro   }}</th>
+            <th>{{ policial.DataNascimento }}</th>
+            <th>{{ policial.Sexo           }}</th>
 
-                <a href="{% url "editar"    policial.idPolicial %}">Editar</a></li>
-                <a href="{% url "deletar"   policial.idPolicial %}">Deletar</a></li>
+            <th><a href="{% url "editar"    policial.idPolicial %}">Editar</a>
+            <a href="{% url "deletar"   policial.idPolicial %}">Deletar</a></th>
         {% endfor %}
+            </tr>
+    </table>
+     <br>
+                <!--  INSERÇÃO DE DADOS -->
 
     <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
+        <input type="text" name="Matricula">
+        <input type="text" name="Nome">
+        <input type="text" name="Sobrenome">
         <input type="date" name="DataCadastro">
         <input type="date" name="DataNascimento">
         <input type="text" name="Sexo">
 
         <button type="submit">Cadastrar</button>
     </form>
-    </ul>
+
 
     </body>
 </html>
