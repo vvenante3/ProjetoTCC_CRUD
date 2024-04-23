@@ -35,4 +35,4 @@ def atualizar(request, id):
 def deletar(request, id):
     policial = Policial.objects.get(idPolicial=id)
     policial.delete()
-    return redirect("home")
+    return redirect(home)
