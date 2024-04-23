@@ -28,8 +28,7 @@ def atualizar(request, id):
 
     policial.DataCadastro   = DataCadastro
     policial.DataNascimento = DataNascimento
-    policial                = Sexo
-
+    policial.Sexo           = Sexo
     policial.save()
     return redirect(home)
 
