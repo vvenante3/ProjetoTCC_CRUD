@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Policial
+from .models import Policial, Psicologo
+
+# POLICIAL (PARTICIPANTES)
 def home(request):
     policiais = Policial.objects.all()
     return render(request, "index.html", {"policiais": policiais})
@@ -15,12 +17,11 @@ def salvar(request):
     #Salvar no Db
     Policial.objects.create(Matricula=Matricula, Nome=Nome, Sobrenome=Sobrenome, DataCadastro=DataCadastro, DataNascimento=DataNascimento, Sexo=Sexo)
     policiais = Policial.objects.all()
-    return render(request, "index.html", {"policiais": policiais})
+    return redirect(home)
 
 def editar(request, id):
     policial = Policial.objects.get(idPolicial=id)
     return render(request, "atualizar.html", {"policial": policial})
-
 
 def atualizar(request, id):
     Matricula      = request.POST.get('Matricula')
@@ -45,3 +46,9 @@ def deletar(request, id):
     policial = Policial.objects.get(idPolicial=id)
     policial.delete()
     return redirect(home)
+
+# PSICOLOGO
+def home_psicologo(request):
+    psicologo = Psicologo.objects.all()
+    return render(request, "index_psicologo.html", {"psicologo": psicologo})
+
