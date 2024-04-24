@@ -5,11 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro Policiais</title>
+    <title>Cadastro de Participantes</title>
 </head>
 <body>
+
                 <!--  AMOSTRA DE DADOS -->
-    <h2>Cadastro dos Participantes</h2>
+    <h2>Cadastro de Participantes</h2>
+                                                            <!-- BARRA DE PESQUISA -->
+    <div class="tabela-policiais">                          <!-- ADD CSS -->
     <table border="1">
         <tr>
             <th>ID                  </th>
@@ -19,7 +22,7 @@
             <th>CADASTRO NO SISTEMA </th>
             <th>DATA DE NASCIMENTO  </th>
             <th>SEXO                </th>
-            <th>OPÇÕES</th>
+            <th>OPÇÕES              </th>
         </tr>
 
         {% for policial in policiais %}
@@ -37,21 +40,23 @@
         {% endfor %}
             </tr>
     </table>
+    </div>
      <br>
-                <!--  INSERÇÃO DE DADOS -->
 
+                <!--  INSERÇÃO DE DADOS -->
+    <h3>Realizar Cadastro</h3>
+    <div class="tabela-insercao-dados">                     <!-- ADD CSS -->
     <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
-        <input type="text" name="Matricula">
-        <input type="text" name="Nome">
-        <input type="text" name="Sobrenome">
-        <input type="date" name="DataCadastro">
-        <input type="date" name="DataNascimento">
-        <input type="text" name="Sexo">
+        Matricula           <input type="text" name="Matricula"     >   <br>
+        Nome                <input type="text" name="Nome"          >   <br>
+        Sobrenome           <input type="text" name="Sobrenome"     >   <br>
+        Data de Cadastro    <input type="date" name="DataCadastro"  >   <br>
+        Data de Nascimento  <input type="date" name="DataNascimento">   <br>
+        Selecione o Sexo    <input type="text" name="Sexo"          >   <br><br>
 
         <button type="submit">Cadastrar</button>
     </form>
-
-
+    </div>
     </body>
 </html>
