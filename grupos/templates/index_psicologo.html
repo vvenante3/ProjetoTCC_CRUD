@@ -5,9 +5,49 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro Psicologo</title>
+    <title>Cadastro de Psicologo</title>
 </head>
 <body>
-    ..TESTE..
+
+            <!--  AMOSTRA DE DADOS -->
+    <h2>Cadastro de Psicologo</h2>
+    <div class="tabela-psicologo">
+        <table border="1">
+            <tr>
+                <th>ID              </th>
+                <th>NOME COMPLETO   </th>
+                <th>CRP             </th>
+                <th>OPÇÕES          </th>
+            </tr>
+
+        {% for psicologo in  psicologo %}
+            <tr>
+                <th>{{ psicologo.idPsicologo    }}</th>
+                <th>{{ psicologo.nomePsicologo  }}</th>
+                <th>{{ psicologo.CRP            }}</th>
+
+                <th>
+            {# BOTAO EDITAR  #}
+            {# BOTAO DELETAR #}
+                </th>
+            {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <br>
+
+            <!-- INSERÇÃO DE DADOS-->
+    <h3>Realizar Cadastro</h3>
+    <div class="tabela-insercao-dados-psicologo">
+        <form>
+            {% csrf_token %}
+
+
+
+
+        </form>
+
+    </div>
+
 </body>
 </html>

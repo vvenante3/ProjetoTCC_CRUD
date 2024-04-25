@@ -27,7 +27,7 @@
 
         {% for policial in policiais %}
             <tr>
-                <th>{{ policial.idPolicial     }} </th>
+                <th>{{ policial.idPolicial     }}</th>
                 <th>{{ policial.Matricula      }}</th>
                 <th>{{ policial.Nome           }}</th>
                 <th>{{ policial.Sobrenome      }}</th>
@@ -35,17 +35,19 @@
                 <th>{{ policial.DataNascimento }}</th>
                 <th>{{ policial.Sexo           }}</th>
 
-                <th><a href="{% url "editar"    policial.idPolicial %}">Editar</a>
-                    <a href="{% url "deletar"   policial.idPolicial %}" onclick="return confirm('Deseja realmente deletar este participante?')">Deletar</a></th>
+                <th>
+                    <a href="{% url "editar"    policial.idPolicial %}">Editar</a>
+                    <a href="{% url "deletar"   policial.idPolicial %}" onclick="return confirm('Deseja realmente deletar este participante?')">Deletar</a>
+                </th>
         {% endfor %}
             </tr>
         </table>
     </div>
-     <br>
+    <br>
 
                 <!--  INSERÇÃO DE DADOS -->
     <h3>Realizar Cadastro</h3>
-    <div class="tabela-insercao-dados">                     <!-- ADD CSS -->
+    <div class="tabela-insercao-dados-policial">                     <!-- ADD CSS -->
         <form action="{% url 'salvar' %}" method="POST">
             {% csrf_token %}
             Matricula           <input type="text" name="Matricula"         required    >   <br>

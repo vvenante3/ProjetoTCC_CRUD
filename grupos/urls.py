@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import home, salvar, editar, atualizar, deletar, home_psicologo
+from .views import (home, salvar, editar, atualizar, deletar,
+                    home_psicologo, salvar_psicologo,)
 
 urlpatterns = [
     #Cadastro Policiais
@@ -11,5 +12,6 @@ urlpatterns = [
     path('deletar/<int:id>',    deletar,    name="deletar"),
 
     #Cadastro Psicologo
-    path('home_psicologo', home_psicologo, name="home_psicologo")
+    path('home_psicologo', home_psicologo, name="home_psicologo"),
+    path('salvar_psicologo/', salvar_psicologo, name="salvar_psicologo"),
 ]

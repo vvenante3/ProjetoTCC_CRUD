@@ -52,3 +52,14 @@ def home_psicologo(request):
     psicologo = Psicologo.objects.all()
     return render(request, "index_psicologo.html", {"psicologo": psicologo})
 
+def salvar_psicologo(request):
+    NomePsicologo       = request.POST.get('NomePsicologo')
+    SobrenomePsicologo  = request.POST.get('SobrenomePsicologo')
+    CRP                 = request.POST.get('CRP')
+
+    # Salvar no Db
+    Psicologo.objects.create(NomePsicologo=NomePsicologo, SobrenomePsicologo=SobrenomePsicologo, CRP=CRP)
+    psicologos = Psicologo.objects.all()
+    return redirect('index_psicologo')
+
+
