@@ -23,11 +23,11 @@
         {% for psicologo in  psicologo %}
             <tr>
                 <th>{{ psicologo.idPsicologo    }}</th>
-                <th>{{ psicologo.nomePsicologo  }}</th>
+                <th>{{ psicologo.NomePsicologo  }}</th>
                 <th>{{ psicologo.CRP            }}</th>
 
                 <th>
-            {# BOTAO EDITAR  #}
+            {# BOTAO EDITAR #}
             {# BOTAO DELETAR #}
                 </th>
             {% endfor %}
@@ -39,14 +39,17 @@
             <!-- INSERÇÃO DE DADOS-->
     <h3>Realizar Cadastro</h3>
     <div class="tabela-insercao-dados-psicologo">
-        <form>
+        <form action="{% url 'salvar_psicologo' %}" method="POST">
             {% csrf_token %}
+            Nome do Psicologo <input type="text" name="NomePsicologo" required  >   <br>
+            CRP               <input type="text" name="CRP"    >   <br><br>
 
-
-
-
+            <button type="submit">Cadastrar</button>
         </form>
-
+    </div>
+    <br>
+    <div>
+        {# CADASTRAR PARTICIPANTE #}
     </div>
 
 </body>

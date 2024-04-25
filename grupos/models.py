@@ -14,5 +14,8 @@ class Policial(models.Model):
 
 class Psicologo(models.Model):
     idPsicologo     = models.AutoField(primary_key=True)
-    nomePsicologo   = models.CharField(max_length=30)
+    NomePsicologo   = models.CharField(max_length=30)
     CRP             = models.CharField(max_length=12)
+
+    def __str__(self):
+        return f'{self.idPsicologo} - {self.NomePsicologo} - {self.CRP}'
