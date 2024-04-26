@@ -61,4 +61,17 @@ def salvar_psicologo(request):
     psicologos = Psicologo.objects.all()
     return redirect('home_psicologo')
 
+def editar_psicologo(request, id):
+    psicologo = Psicologo.objects.get(idPsicologo=id)
+    return render(request,"atualizar_psicologo.html", {"psicologo": psicologo})
 
+def atualizar_psicologo(request, id):
+    NomePsicologo = request.POST.get('NomePsicologo')
+    CRP = request.POST.get('CRP')
+
+    psicologo = Psicologo.objects.get(idPsicologo=id)
+
+    psicologo.NomePsicologo = NomePsicologo
+    psicologo.CRP           = CRP
+    psicologo.save()
+    return redirect('home_psicologo')

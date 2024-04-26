@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editar Psicologo</title>
+</head>
+<body>
+
+        <!-- AMOSTRA DE DADOS -->
+        <h2>Editar Psicologo</h2>
+
+        <div>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>NOME COMPLETO</th>
+                    <th>CPR</th>
+                </tr>
+                <tr>
+                    <th>{{ psicologo.idPsicologo    }}</th>
+                    <th>{{ psicologo.NomePsicologo  }}</th>
+                    <th>{{ psicologo.CRP            }}</th>
+                </tr>
+            </table>
+        </div>
+
+                <!-- INSERÇÃO DE DADOS -->
+        <h3>Editar</h3>
+
+        <div>
+            <form action="{% url 'atualizar_psicologo' psicologo.idPsicologo %}" method="POST">
+                {% csrf_token %}
+                Nome Completo <input type="text" name="NomePsicologo">
+                CRP           <input type="text" name="CRP">
+
+                <button type="submit" onclick="return confirm('Deseja realmente atualizar?')">Atualizar</button>
+            </form>
+        </div>
+        <br>
+        <div>
+            BOTÃO VOLTAR
+        </div>
+
+</body>
+</html>

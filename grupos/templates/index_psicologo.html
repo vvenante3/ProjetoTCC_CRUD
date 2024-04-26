@@ -27,7 +27,7 @@
                 <th>{{ psicologo.CRP            }}</th>
 
                 <th>
-            {# BOTAO EDITAR #}
+                    <a href="{% url 'editar_psicologo' psicologo.idPsicologo%}">Editar</a>
             {# BOTAO DELETAR #}
                 </th>
             {% endfor %}
@@ -42,14 +42,14 @@
         <form action="{% url 'salvar_psicologo' %}" method="POST">
             {% csrf_token %}
             Nome do Psicologo <input type="text" name="NomePsicologo" required  >   <br>
-            CRP               <input type="text" name="CRP"    >   <br><br>
+            CRP               <input type="text" name="CRP"                     >   <br><br>
 
             <button type="submit">Cadastrar</button>
         </form>
     </div>
     <br>
     <div>
-        {# CADASTRAR PARTICIPANTE #}
+        {# CADASTRO PSICOLOGO #}
     </div>
 
 </body>
