@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import (home, salvar, editar, atualizar, deletar,
-                    home_psicologo, salvar_psicologo, editar_psicologo, atualizar_psicologo, deletar_psicologo)
+                    home_psicologo, salvar_psicologo, editar_psicologo, atualizar_psicologo, deletar_psicologo,
+                    buscar_matricula)
 
 urlpatterns = [
     #Cadastro Policiais
@@ -16,5 +17,8 @@ urlpatterns = [
     path('salvar_psicologo/',               salvar_psicologo,       name="salvar_psicologo"),
     path('editar_psicologo/<int:id>',       editar_psicologo,       name="editar_psicologo"),
     path('atualizar_psicologo/<int:id>',    atualizar_psicologo,    name="atualizar_psicologo"),
-    path('deletar_psicologo/<int:id>',      deletar_psicologo,      name='deletar_psicologo')
+    path('deletar_psicologo/<int:id>',      deletar_psicologo,      name='deletar_psicologo'),
+
+    #Barra de Busca - Policiais
+    path('matricula_policial/', buscar_matricula, name="buscar_matricula"),
 ]
