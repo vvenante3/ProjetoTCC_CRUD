@@ -75,3 +75,8 @@ def atualizar_psicologo(request, id):
     psicologo.CRP           = CRP
     psicologo.save()
     return redirect('home_psicologo')
+
+def deletar_psicologo(request, id):
+    psicologo = Psicologo.objects.get(idPsicologo=id)
+    psicologo.delete()
+    return redirect('home_psicologo')

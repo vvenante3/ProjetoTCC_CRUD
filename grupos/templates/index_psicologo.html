@@ -27,8 +27,8 @@
                 <th>{{ psicologo.CRP            }}</th>
 
                 <th>
-                    <a href="{% url 'editar_psicologo' psicologo.idPsicologo%}">Editar</a>
-            {# BOTAO DELETAR #}
+                    <a href="{% url "editar_psicologo"  psicologo.idPsicologo %}">Editar</a>
+                    <a href="{% url "deletar_psicologo" psicologo.idPsicologo %}" onclick="return confirm('Deseja realmente deletar?')">Deletar</a>
                 </th>
             {% endfor %}
             </tr>
@@ -49,7 +49,7 @@
     </div>
     <br>
     <div>
-        {# CADASTRO PSICOLOGO #}
+        CADASTRO PARTICIPANTES
     </div>
 
 </body>
