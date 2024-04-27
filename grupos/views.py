@@ -82,9 +82,18 @@ def deletar_psicologo(request, id):
     return redirect('home_psicologo')
 
 # BARRA DE BUSCA
+# def buscar_matricula(request):
+#     if 'matricula' in request.GET:
+#         resultado_busca = Policial.objects.filter(Matricula='Matricula')
+#     else:
+#         resultado_busca = None
+#     return render(request, 'index.html', {'resultado_busca': resultado_busca})
+
 def buscar_matricula(request):
-    if 'matricula' in request.GET:
-        resultado_busca = Policial.objects.filter(matricula)
-    else:
-        resultado_busca = None
-    return render(request, 'index.html', {'resultado_busca': resultado_busca})
+    listar = Policial.objects.all()
+
+    busca = request.GET.get('busca')
+    if busca:
+        listar = Policial.objects.filter(Matricula__icontains=busca)
+
+    return render(request, 'index.html', {'listar': listar})

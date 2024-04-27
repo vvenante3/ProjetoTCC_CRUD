@@ -12,7 +12,7 @@
     <h2>Cadastro de Participantes</h2>
     <div>
         <form action="{% url 'buscar_matricula' %}" method="GET">
-            <input type="text" name="Matricula" value="{{ request.GET.Matricula }}" autocomplete="off" placeholder="Matrícula">
+            <input type="text" name="busca" id="busca" value=" " autocomplete="off" placeholder="Matrícula">
             <button type="submit">Buscar</button>
             <a href="/grupos">Limpar</a>
         </form>
