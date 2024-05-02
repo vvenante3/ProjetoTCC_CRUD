@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Policiais Filtrados</title>
+</head>
+<body>
+    <h1> Pesquisa de Policiais </h1>
+
+    <br>
+
+    {% if query %}
+        <p>Resultados para '{{query}}':</p>
+    {% endif %}
+
+    <div>
+        <table>
+            <tr>
+                <th>ID                  </th>
+                <th>MATRÍCULA           </th>
+                <th>NOME                </th>
+                <th>SOBRENOME           </th>
+                <th>CADASTRO NO SISTEMA </th>
+                <th>DATA DE NASCIMENTO  </th>
+                <th>SEXO                </th>
+                <th>OPÇÕES              </th>
+            </tr>
+
+        {% for policial in policiais %}
+
+             <tr>
+                <th>{{ policial.idPolicial     }}</th>
+                <th>{{ policial.Matricula      }}</th>
+                <th>{{ policial.Nome           }}</th>
+                <th>{{ policial.Sobrenome      }}</th>
+                <th>{{ policial.DataCadastro   }}</th>
+                <th>{{ policial.DataNascimento }}</th>
+                <th>{{ policial.Sexo           }}</th>
+
+        {% empty %}
+            <tr>
+                <td colspan="8">Nenhum policial encontrado</td>
+            </tr>
+
+        {% endfor %}
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
