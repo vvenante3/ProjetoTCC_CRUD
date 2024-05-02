@@ -17,7 +17,7 @@
     {% endif %}
 
     <div>
-        <table>
+        <table border="1">
             <tr>
                 <th>ID                  </th>
                 <th>MATRÍCULA           </th>
@@ -40,6 +40,11 @@
                 <th>{{ policial.DataNascimento }}</th>
                 <th>{{ policial.Sexo           }}</th>
 
+                 <th>
+                    <a href="{% url 'editar'    policial.idPolicial %}">Editar</a>
+                    <a href="{% url 'deletar'   policial.idPolicial %}" onclick="return confirm('Deseja realmente deletar este participante?')">Deletar</a>
+                </th>
+
         {% empty %}
             <tr>
                 <td colspan="8">Nenhum policial encontrado</td>
@@ -48,6 +53,12 @@
         {% endfor %}
             </tr>
         </table>
+    </div>
+
+    <br>
+
+    <div>
+        <a href=" /grupos ">Voltar</a>
     </div>
 </body>
 </html>

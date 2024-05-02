@@ -90,5 +90,5 @@ def search_view(request):
     else:
         policiais = Policial.objects.none()
 
-        return render(request, 'search.html', {'policiais': policiais, 'query':query})
+    return render(request, 'search.html', {'policiais': policiais, 'query':query})
 
