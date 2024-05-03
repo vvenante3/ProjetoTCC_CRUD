@@ -88,7 +88,7 @@ def search_view(request):
     if query:
         policiais = Policial.objects.filter(Matricula__icontains=query)
     else:
-        policiais = Policial.objects.none()
+        policiais = Policial.objects.all()
 
     return render(request, 'search.html', {'policiais': policiais, 'query':query})
 

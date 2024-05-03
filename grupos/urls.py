@@ -6,7 +6,7 @@ from .views import (home, salvar, editar, atualizar, deletar,
 
 urlpatterns = [
     #Cadastro Policiais
-    path('', home, name='home'),
+    path('', home,                          name='home'),
     path('salvar/',             salvar,     name="salvar"),
     path('editar/<int:id>',     editar,     name="editar"),
     path('atualizar/<int:id>',  atualizar,  name="atualizar"),
